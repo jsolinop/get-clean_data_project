@@ -23,7 +23,7 @@ library(tidyverse)
 
 run_analysis <- function(){
 
-        ## ---- Reada data from files ----
+        ## ---- Variables: Read data from files ----
         # Read activities from "activity_labels.txt" and assign the content to a
         # dataframe `activity_labels`, with two variables: 1.- id_activity (int) 2.-
         # activity (factor)
