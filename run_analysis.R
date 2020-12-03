@@ -76,7 +76,7 @@ run_analysis <- function(){
         
         ## Merge Activity Labels and Join it with Activities Descrition table
         total_activities <- rbind(train_labels, test_labels)
-        total_activities <- merge(total_activities,activity_names)
+        total_activities <- left_join(total_activities,activity_names)
         total_activities <- select(total_activities, activity)
 
         total_subjects <- rbind(train_subject, test_subject)
@@ -97,3 +97,5 @@ complete_set <- run_analysis()
 complete_colmeans <-
         complete_set %>% group_by(id_subject, activity) %>% 
                 summarise_all(mean) %>% arrange(id_subject, activity)
+
+write.table(complete_colmeans,"results/complete_colmeans.txt", row.names = FALSE)
